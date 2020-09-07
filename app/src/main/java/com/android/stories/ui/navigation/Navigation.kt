@@ -5,4 +5,6 @@ interface Navigation {
     fun next()
 
     fun previous()
+
+    fun hasPrevious(): Boolean
 }

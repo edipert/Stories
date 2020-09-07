@@ -1,7 +1,6 @@
 package com.android.stories.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.android.stories.R
@@ -17,7 +16,7 @@ class MainFragment : BaseFragment<MainViewModel, MainFragmentBinding>(), Navigat
 
     private lateinit var adapter: StoryPageAdapter
 
-    override val viewModel: MainViewModel  by viewModels()
+    override val viewModel: MainViewModel by viewModels()
 
     override fun getLayoutId() = R.layout.main_fragment
 
@@ -65,5 +64,9 @@ class MainFragment : BaseFragment<MainViewModel, MainFragmentBinding>(), Navigat
         if (viewPager.currentItem > 0) {
             viewPager.setCurrentItem(viewPager.currentItem - 1, true)
         }
+    }
+
+    override fun hasPrevious(): Boolean {
+        return viewPager.currentItem > 0
     }
 }

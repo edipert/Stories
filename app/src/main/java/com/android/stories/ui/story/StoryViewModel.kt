@@ -44,11 +44,13 @@ class StoryViewModel @ViewModelInject constructor(
         }
     }
 
+    fun hasPreviousStory() = content.value?.lastSeenStoryIndex ?: 0 > 0
+
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume() {
         content.value?.let {
             if (it.lastSeenStoryIndex >= 0)
-                currentIndex.value = it.lastSeenStoryIndex
+                currentIndex.value = it.lastSeenStoryIndex + 1
             else
                 currentIndex.value = 0
         } ?: run {

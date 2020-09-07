@@ -22,8 +22,6 @@ class StoryFragment : BaseFragment<StoryViewModel, StoryFragmentBinding>(), Page
 
     companion object {
 
-        private const val TAG_INDEX = "TAG_INDEX"
-
         fun newInstance() = StoryFragment()
     }
 
@@ -75,7 +73,9 @@ class StoryFragment : BaseFragment<StoryViewModel, StoryFragmentBinding>(), Page
                 MotionEvent.ACTION_UP -> {
                     if (timer.millisUntilFinished > 0) {
                         timer.cancel()
-                        storyProgressBar.previous()
+                        if (navigation?.hasPrevious() == true || viewModel.hasPreviousStory()) {
+                            storyProgressBar.previous()
+                        }
                     } else {
                         storyPlayerView.resume()
                         storyProgressBar.resume()
