@@ -1,7 +1,6 @@
 package com.android.stories.ui.custom.widget
 
 import android.content.Context
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -10,6 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.android.stories.R
 import com.android.stories.custom.util.StoryType
+import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -53,6 +53,10 @@ class StoryPlayerView @JvmOverloads constructor(
     private val mediaSource by lazy {
         val sourceFactory = DefaultHttpDataSourceFactory(KEY_USER_AGENT)
         ProgressiveMediaSource.Factory(sourceFactory)
+    }
+
+    private val glide by lazy {
+        Glide.with(context)
     }
 
     init {
@@ -150,9 +154,12 @@ class StoryPlayerView @JvmOverloads constructor(
     private fun playImageStory(url: String?) {
         if (url == null) return
 
-        val imageStream = resources.assets.open(url)
-        val drawable = BitmapDrawable(resources, imageStream)
-        storyImageView.setImageDrawable(drawable)
+        if (!(url.startsWith("https://") || url.startsWith("https://")) &&
+            !(url.endsWith(".jpeg") || url.endsWith(".jpg") || url.endsWith(".png"))
+        ) return
+
+
+        glide.load(url).into(storyImageView)
         storyStateListener?.onReady(DEFAULT_IMAGE_STORY_DURATION)
     }
 

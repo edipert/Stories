@@ -76,7 +76,7 @@ class StoryProgressBar @JvmOverloads constructor(
     fun previous() {
         if (isSkipStart || isReverseStart) return
         if (isComplete) return
-        if (currentIndex  < 0) return
+        if (currentIndex < 0) return
 
         val progressBar = progressBarList[currentIndex]
         isReverseStart = true

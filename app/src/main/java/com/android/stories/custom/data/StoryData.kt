@@ -7,9 +7,14 @@ object StoryData {
     private val videoList = listOf(
         "http://techslides.com/demos/sample-videos/small.mp4",
         "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4")
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+    )
 
-    private val imageList = listOf("image1.jpg", "image2.jpg", "image3.jpg")
+    private val imageList = listOf(
+        "https://www.gstatic.com/webp/gallery/1.jpg",
+        "https://www.gstatic.com/webp/gallery/2.jpg",
+        "https://www.gstatic.com/webp/gallery/4.jpg"
+    )
 
     fun getRandomContent(): Content {
         val storyList = arrayListOf<Story>()
