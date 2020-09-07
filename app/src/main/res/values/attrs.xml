@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StoryProgressBar">
+        <attr name="storyCount" format="integer|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="StoryPlayerView">
+        <attr name="storyType" format="integer">
+            <enum name="video" value="1" />
+            <enum name="image" value="2" />
+        </attr>
+        <attr name="url" format="string" />
+    </declare-styleable>
+</resources>
