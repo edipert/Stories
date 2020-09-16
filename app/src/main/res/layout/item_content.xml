@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.android.stories.custom.data.model.Content" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.android.stories.ui.adapter.ItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(position)}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/contentImageView"
+            imageUrl="@{model.imageUrl}"
+            rounded="@{true}"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.username}"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="@id/contentImageView"
+            app:layout_constraintRight_toRightOf="@id/contentImageView"
+            app:layout_constraintTop_toBottomOf="@id/contentImageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

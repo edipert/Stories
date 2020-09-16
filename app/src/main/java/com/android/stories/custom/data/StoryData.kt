@@ -1,5 +1,7 @@
 package com.android.stories.custom.data
 
+import com.android.stories.custom.data.model.Content
+import com.android.stories.custom.data.model.Story
 import kotlin.random.Random
 
 object StoryData {
@@ -16,7 +18,13 @@ object StoryData {
         "https://www.gstatic.com/webp/gallery/4.jpg"
     )
 
-    fun getRandomContent(): Content {
+    val contents = listOf(
+        getRandomContent(),
+        getRandomContent(),
+        getRandomContent()
+    )
+
+    private fun getRandomContent(): Content {
         val storyList = arrayListOf<Story>()
 
         for (i in 0 until Random.nextInt(1, 10)) {
@@ -28,8 +36,8 @@ object StoryData {
         }
 
         return Content(
-            username = "edip",
-            imageUrl = "",
+            username = "ediperturk",
+            imageUrl = "https://www.gstatic.com/webp/gallery/1.jpg",
             storyList = storyList
         )
     }

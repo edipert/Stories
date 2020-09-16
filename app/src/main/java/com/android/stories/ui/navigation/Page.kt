@@ -4,4 +4,6 @@ interface Page {
     fun onPageChanging()
 
     fun onPageReleased()
+
+    fun onPageClosed()
 }

@@ -1,4 +1,4 @@
-package com.android.stories.custom.data
+package com.android.stories.custom.data.model
 
 import android.os.Parcelable
 import com.android.stories.custom.util.StoryType

@@ -2,6 +2,7 @@ package com.android.stories.ui.custom.widget
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import com.android.stories.R
@@ -33,6 +34,7 @@ class StoryProgressBar @JvmOverloads constructor(
 
     private fun readAttributes(context: Context, attributeSet: AttributeSet?) {
         orientation = HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
 
         val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.StoryProgressBar)
         storyCount = typedArray.getInt(R.styleable.StoryProgressBar_storyCount, 0)

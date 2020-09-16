@@ -6,14 +6,14 @@
 
         <variable
             name="viewModel"
-            type="com.android.stories.ui.main.MainViewModel" />
+            type="com.android.stories.ui.player.PlayerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
+        tools:context=".ui.player.PlayerFragment">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"

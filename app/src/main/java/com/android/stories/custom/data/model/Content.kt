@@ -1,4 +1,4 @@
-package com.android.stories.custom.data
+package com.android.stories.custom.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

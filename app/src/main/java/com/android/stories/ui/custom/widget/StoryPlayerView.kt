@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
+import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import kotlinx.android.synthetic.main.view_story_player.view.*
 
@@ -112,6 +113,7 @@ class StoryPlayerView @JvmOverloads constructor(
 
     private fun initialize() {
         storyPlayer.player = player
+        storyPlayer.setShowBuffering(PlayerView.SHOW_BUFFERING_WHEN_PLAYING)
         storyPlayer.useController = false
     }
 
@@ -189,8 +191,10 @@ class StoryPlayerView @JvmOverloads constructor(
     }
 
     fun stop() {
-        if (storyType == StoryType.VIDEO)
+        if (storyType == StoryType.VIDEO) {
             player.stop()
+            player.release()
+        }
 
         state = State.STOPPED
     }
@@ -198,10 +202,6 @@ class StoryPlayerView @JvmOverloads constructor(
     fun isPaused() = state == State.PAUSED
 
     fun isPlaying() = state == State.PLAYING
-
-    fun release() {
-        player.release()
-    }
 
     interface StoryStateListener {
         fun onReady(duration: Long)

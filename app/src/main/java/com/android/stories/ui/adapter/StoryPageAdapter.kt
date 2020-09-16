@@ -1,6 +1,7 @@
 package com.android.stories.ui.adapter
 
 import android.util.SparseArray
+import androidx.core.util.getOrElse
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -21,7 +22,7 @@ class StoryPageAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = StoryFragment.newInstance()
+        val fragment = StoryFragment.newInstance(position)
         fragment.setNavigation(navigation)
         pageArray.put(position, fragment)
         return fragment

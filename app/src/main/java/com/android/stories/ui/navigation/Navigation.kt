@@ -6,5 +6,7 @@ interface Navigation {
 
     fun previous()
 
+    fun completed()
+
     fun hasPrevious(): Boolean
 }

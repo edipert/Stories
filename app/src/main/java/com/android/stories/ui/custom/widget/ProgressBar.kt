@@ -43,6 +43,7 @@ class ProgressBar @JvmOverloads constructor(
     fun setMinWithoutCallback() {
         maxProgress.setBackgroundResource(R.color.colorEmptyProgressBar)
         maxProgress.visibility = GONE
+        frontProgress.visibility = GONE
         animation?.setAnimationListener(null)
         animation?.cancel()
     }
@@ -50,6 +51,7 @@ class ProgressBar @JvmOverloads constructor(
     fun setMaxWithoutCallback() {
         maxProgress.setBackgroundResource(R.color.colorProgressBar)
         maxProgress.visibility = VISIBLE
+        frontProgress.visibility = GONE
         animation?.setAnimationListener(null)
         animation?.cancel()
     }
